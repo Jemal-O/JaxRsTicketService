@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 public class TransferDataCreation {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
 
+//    получается, чтобы создать DataTransfer нужно сначала создать TransferDataCreation, в котром нет смысла.
+//    Инстаницрование DataTransfer можно сделать через стаический initDataTransfer
     public DataTransfer initDataTransfer(String name, String lastName, String patronymicName, String departCity,
             String arrivalCity, String departDate, String departTime, String arrivalDate, String arrivalTime,
             String birthDate) throws ParseException {
