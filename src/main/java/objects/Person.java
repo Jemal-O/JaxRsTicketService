@@ -14,7 +14,6 @@ public class Person {
 
     public Person(String name, String lastName, String patronymicName, Date birthDate) {
 //        super для чего?
-        super();
         this.name = name;
         this.lastName = lastName;
         this.patronymicName = patronymicName;

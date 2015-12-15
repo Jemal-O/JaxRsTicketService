@@ -9,10 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 // объект никуда не передается. В чем смысл этих аннотаций
-@XmlRootElement(name = "tickets")
-@XmlAccessorType(XmlAccessType.NONE)
 public class TicketStorage implements Storage {
-    @XmlElement
     private Map<Integer, Ticket> tickets = new HashMap<Integer, Ticket>();
 
     public Ticket getTicket(int ticketId) {
