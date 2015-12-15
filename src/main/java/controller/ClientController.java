@@ -36,11 +36,10 @@ public class ClientController {
 
         DataTransfer transfer;
         try {
-            transfer = (new TransferDataCreation()).initDataTransfer(name, lastName, patronymicName, departCity,
-                    arrivalCity, departDate, departTime, arrivalDate, arrivalTime, birthDate);
+            transfer = TransferDataCreation.initDataTransfer(name, lastName, patronymicName, departCity, arrivalCity,
+                    departDate, departTime, arrivalDate, arrivalTime, birthDate);
             String ticketNumber = restTemplate.postForObject(URL + "reserve", transfer, String.class);
             modelAndView.getModelMap().addAttribute("ticket", ticketNumber);
-
         } catch (ParseException e) {
             modelAndView.getModelMap().addAttribute("ticket", "don't work");
             e.printStackTrace();
@@ -56,8 +55,7 @@ public class ClientController {
             addAttributeToModel(modelAndView, ticket);
         } catch (NotTicketFoundException e) {
             modelAndView.getModelMap().addAttribute("mistake", ticketNum);
-        }
-        catch (HttpServerErrorException ex) {
+        } catch (HttpServerErrorException ex) {
             modelAndView.getModelMap().addAttribute("mistake", ticketNum);
         }
         modelAndView.setViewName("index");
@@ -74,8 +72,7 @@ public class ClientController {
             modelAndView.getModelMap().addAttribute("mistake", ticketNum);
         } catch (NotTicketFoundException e) {
             modelAndView.getModelMap().addAttribute("mistake", ticketNum);
-        }
-        catch (HttpServerErrorException ex) {
+        } catch (HttpServerErrorException ex) {
             modelAndView.getModelMap().addAttribute("mistake", ticketNum);
         }
         modelAndView.setViewName("index");
